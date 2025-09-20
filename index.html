@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Xinyue Zhu</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Font Awesome for the GitHub / cap / Twitter icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* ========== RESET & BASE ========== */
+    * { 
+      box-sizing: border-box; 
+      margin: 0; 
+      padding: 0; 
+    }
+    
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      color: #000;
+      line-height: 1.5;
+      background: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 0;
+    }
+    
+    a { 
+      color: #2e5cb8; 
+      text-decoration: none; 
+    }
+    
+    a:hover { 
+      text-decoration: underline; 
+    }
+
+    /* ========== PAGE CONTAINER ========== */
+    .container {
+      max-width: 1150px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px;
+      background: #fff;
+    }
+
+    /* ========== HEADER SECTION ========== */
+    .header {
+      display: flex;
+      width: 100%;
+      flex-wrap: nowrap;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+    
+    .header .image { 
+      flex: 0 0 23%; 
+    }
+    
+    .header .text {
+      flex: 1;
+      min-width: 0;
+      padding-left: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .header .image img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    
+    .header .text .name {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+    
+    .header .text .subtitle {
+      font-size: 0.95rem;
+      color: #000;
+    }
+    
+    .header .text .bio {
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+
+    /* ========== SOCIAL ICONS ========== */
+    .social {
+      margin-top: 16px;
+    }
+    
+    .social a {
+      font-size: 1.13rem;
+      color: #000;
+      margin-right: 12px;
+      vertical-align: middle;
+    }
+
+    /* ========== SECTION HEADERS ========== */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #eaeaea;
+      padding-bottom: 4px;
+      text-align: left;
+    }
+
+    /* ========== CONTENT BLOCKS ========== */
+    .content { 
+      margin-top: 16px; 
+    }
+    
+    .section { 
+      margin-bottom: 15px; /* Increased from 8px to 60px for larger spacing between publications */
+    }
+
+    /* ========== UPDATES STYLING ========== */
+    ul.updates {
+      margin: 0;
+      padding-left: 16px;
+      list-style-position: inside;
+    }
+    
+    ul.updates li {
+      margin-bottom: 8px;
+      font-size: 0.95rem;
+    }
+
+    /* ========== PUBLICATIONS STYLING ========== */
+    .publication .title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0;
+      display: inline-block;
+      line-height: 1.5; 
+      margin: 0.01;
+      color: #2e5cb8
+    }
+    
+    /* Authors styling - make dark grey */
+    .publication .authors {
+      margin: 0 0;
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    .publication .authors a {
+      color: #000;
+      text-decoration: none;
+      font-size: inherit;
+    }
+
+    .publication .authors a:hover {
+      text-decoration: underline;
+    }
+
+    /* Venue styling - make dark grey */
+    .publication .venue {
+      margin: 0 0 0px;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: #000;
+    }
+
+    /* Simple link list styling */
+    .publication .link-list {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .publication .link-list a {
+      color: #000;
+      text-decoration: none;
+    }
+
+    .publication .link-list a:hover {
+      text-decoration: underline;
+    }
+
+    /* Style for dot separators that won't be underlined */
+    .publication .link-list .dot {
+      color: #000;
+      margin: 0 0.3rem;
+    }
+
+    /* Publication description - make dark grey */
+    .pub-desc {
+      margin: 0.95rem 0 0;
+      color: #777;
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    /* Badge/venue info paragraphs - make dark grey */
+    .publication p:not(.authors):not(.venue) {
+      color: #000;
+    }
+
+
+    /* ========== BADGES ========== */
+    .badge {
+      color: firebrick;
+      font-weight: 700;
+      margin-right: 4px;
+    }
+
+    /* ========== FEATURED PUBLICATION LAYOUT ========== */
+    .featured-publication {
+      display: flex;
+      gap: 28px;
+      align-items: stretch;
+      margin-bottom: 20px;
+    }
+
+    /* Media column: center content */
+    .featured-publication > div:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .featured-publication > div:first-child img,
+    .featured-publication > div:first-child video {
+      display: block;
+      width: 100%;
+      height: auto !important;
+      max-height: 250px;
+      object-fit: contain;
+      border-radius: 10px;
+    }
+
+    /* Text column: center text vertically */
+    .featured-publication > div:nth-child(2) {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 1px;
+      padding-bottom: 0;
+    }
+
+    /* ========== FOOTER ========== */
+    .email-line {
+      text-align: center;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+    
+    .footer-note {
+      text-align: center;
+      color: #aaa;
+      font-size: 0.95rem;
+      margin-top: 8px;
+    }
+
+    /* ========== RESPONSIVE DESIGN ========== */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px 0;
+      }
+      
+      .container {
+        padding: 15px;
+        margin: 0;
+      }
+      
+      .header {
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      
+      .header .text {
+        padding-left: 0;
+        margin-top: 20px;
+      }
+      
+      .featured-publication {
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .featured-publication > div:first-child {
+        flex: none;
+      }
+      
+      /* Reduce spacing on mobile for better use of space */
+      .section {
+        margin-bottom: 40px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+      
+      .header .text .name {
+        font-size: 1.8rem;
+      }
+      
+      /* Further reduce spacing on very small screens */
+      .section {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <!-- ========== HEADER ========== -->
+    <div class="header">
+      <div class="image">
+        <img src="images/profile.jpg" alt="profile photo">
+      </div>
+      <div class="text">
+        <p class="name">Xinyue Zhu</p>
+        <p class="subtitle">Email: xz3013 [at] columbia [dot] edu</p>
+        <p class="bio">
+          <p>I'm an undergraduate student at Columbia University. At Columbia, I am fortunate to work with Prof. <a href="#">Yunzhu Li</a> and Prof. <a href="#">Matei Ciocarlie</a>.</p>
+          <p style="margin-top: 0.95rem;"> My research interests are in robot learning and robotic manipulation.</p>
+        </p>
+        <div class="social">
+          <a href="https://github.com/YolandaXinyueZhu" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://scholar.google.com/citations?user=6v92M7MAAAAJ&hl=en" aria-label="University"><i class="fas fa-graduation-cap"></i></a>
+          <a href="https://twitter.com/yourhandle" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content">
+      <!-- ========== UPDATES ========== -->
+      <h2 class="section-title">Updates</h2>
+      <div class="section">
+        <ul class="updates">
+          <li>[May '25]: Graduated with my Bachelor's Degree in Computer Science at Columbia. 🎉</li>
+        </ul>
+      </div>
+
+      <!-- ========== PUBLICATIONS ========== -->
+      <h2 class="section-title">Publications</h2>
+
+      <!-- Publication 1: Touch in the Wild -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay playsinline preload="metadata" loop style="border-radius:10px; max-height:250px;">
+              <source src="videos/touchinthewild.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="https://binghao-huang.github.io/touch_in_the_wild/" class="title" target="_blank">Touch in the Wild: Learning Fine-Grained Manipulation with a Portable Visuo-Tactile Gripper</a>
+            <p class="authors"><strong>Xinyue Zhu*</strong>, <a href="https://binghao-huang.github.io/" target="_blank">Binghao Huang*</a>, <a href="https://yunzhuli.github.io/" target="_blank">Yunzhu Li</a></p>
+            <p style="font-size: 0.95rem; margin: 0;">
+              <span class="badge">Best Demo Award</span>at <strong>RSS 2025</strong> Workshop on Robot Hardware-Aware Intelligence
+              <a href="https://rss-hardware-intelligence.github.io/" target="_blank">[Link]</a>
+            </p>
+            <p class="venue">NeurIPS, 2025</p>
+            <p class="link-list">
+              <a href="https://binghao-huang.github.io/touch_in_the_wild/">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2507.15062">paper</a><span class="dot">•</span><a href="https://github.com/YolandaXinyueZhu/touch_in_the_wild">code</a>
+            </p>
+            <p class="pub-desc">Developed a portable visuo-tactile gripper and a 2.6M-sample in-the-wild dataset for fine-grained manipulation.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 2: ReactEMG -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <img src="videos/demo.gif" alt="Demo animation" width="100%" style="border-radius:10px; max-height:250px;" />
+          </div>
+          <div>
+            <a href="https://reactemg.github.io" class="title" target="_blank">ReactEMG: Zero-Shot, Low-Latency Intent Detection via sEMG</a>
+            <p class="authors"><a href="https://www.runshengwang.com/" target="_blank">Runsheng Wang*</a>, <a href="https://github.com/YolandaXinyueZhu" target="_blank"><strong>Xinyue Zhu*</strong></a>, <a href="https://avachen.net/" target="_blank">Ava Chen</a>, <a href="https://jxu.ai/" target="_blank">Jingxi Xu</a>, <a href="https://reactemg.github.io" target="_blank">Lauren Winterbottom</a>, <a href="https://reactemg.github.io" target="_blank">Dawn M. Nilsen</a>, <a href="https://reactemg.github.io" target="_blank">Joel Stein</a>, <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" target="_blank">Matei Ciocarlie</a></p>
+            <p class="venue">arXiv, 2025</p>
+            <p class="link-list">
+              <a href="https://reactemg.github.io" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2506.19815" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/roamlab/reactemg" target="_blank">code</a>
+            </p>
+            <p class="pub-desc"> Developed a masked-modeling transformer for fast, zero-shot intent detection in wearable orthosis control.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 3: Tactile-based Object Retrieval -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay loop playsinline preload="metadata" style="border-radius:10px; max-height:250px;">
+              <source src="videos/geotact.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="#" class="title">Tactile-based Object Retrieval from Granular Media</a>
+            <p class="authors"><a href="https://jxu.ai/" target="_blank">Jingxi Xu*</a>, <a href="https://yjia.net/" target="_blank">Yinsen Jia*</a>, <a href="https://jxu.ai/geotact/" target="_blank">Dongxiao Yang*</a>, <a href="https://pracsys.cs.rutgers.edu/members/patrick-meng/" target="_blank">Patrick Meng</a>, <a href="https://github.com/YolandaXinyueZhu" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="" target="_blank">Zihan Guo</a>, <a href="https://shurans.github.io/" target="_blank">Shuran Song</a>, <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" target="_blank">Matei Ciocarlie</a></p>
+            <p class="venue">Autonomous Robot Journal, 2025</p>
+            <p class="link-list">
+              <a href="https://jxu.ai/geotact/" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2402.04536" target="_blank">paper</a><span class="dot">•</span><a href="https://www.youtube.com/watch?si=PzvTh9DCk312T43v&v=MkaITIAZQEk&feature=youtu.be" target="_blank">video</a>
+            </p>
+            <p class="pub-desc">Trained end-to-end RL policies with high-fidelity tactile feedback to retrieve objects buried in granular media.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 4: DisRNN -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <img src="videos/DisRNN_architecture.png" alt="DisRNN Architecture" style="width:100%; border-radius:10px; max-height:250px; object-fit:cover;">
+          </div>
+          <div>
+            <a href="#" class="title">Disentangling Interpretable Cognitive Variables That Support Human Generalization via DisRNN</a>
+            <p class="authors"><a href="https://jxu.ai/" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="https://www.danielkimmelmdphd.com/" target="_blank">Daniel Kimmel</a></p>
+            <p class="venue">Under Review</p>
+            <p class="pub-desc">Uncovered interpretable dynamics underlying human generalization via an RNN with sparse latent representations.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 5: ChatEMG -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay loop playsinline preload="metadata" style="border-radius:10px; max-height:250px;">
+              <source src="videos/chatemg.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="#" class="title">ChatEMG: Synthetic Data Generation to Control a Robotic Hand Orthosis for Stroke</a>
+            <p class="authors"><a href="https://jxu.ai/" target="_blank">Jingxi Xu*</a>, <a href="https://www.runshengwang.com/" target="_blank">Runsheng Wang*</a>, <a href="https://scholar.google.com/citations?user=l_B2GBMAAAAJ&hl=en" target="_blank">Siqi Shang*</a>, <a href="https://avachen.net/" target="_blank">Ava Chen</a>, <a href="https://yjia.net/" target="_blank">Lauren Winterbottom</a>, <a href="" target="_blank">To-Liang Hsu</a>, <a href="" target="_blank">Wenxi Chen</a>, <a href="" target="_blank">Khondoker Ahmed</a>, <a href="" target="_blank">Pedro Leandro La Rotta</a>, <a href="" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="" target="_blank">Dawn M. Nilsen</a>, <a href="" target="_blank">Joel Stein</a>, <a href="https://www.me.columbia.edu/faculty/matei-ciocarlie" target="_blank">Matei Ciocarlie</a></p>
+            <p class="venue">IEEE Robotics and Automation Letters(RA-L), 2025</p>
+            <p class="link-list">
+              <a href="https://jxu.ai/chatemg/" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2406.12123" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/jingxixu/chatemg" target="_blank">video</a>
+            </p>
+            <p class="pub-desc">Generated synthetic EMG to improve intent detection for wearable robotics control.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 6: GRID -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay playsinline preload="metadata" loop style="border-radius:10px; max-height:250px;">
+              <source src="videos/grid.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="#" class="title">GRID: Scene-Graph-based Instruction-driven Robotic Task Planning</a>
+            <p class="authors"><a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Zhe Ni*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiaoxin Deng*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Cong Tai*</a>, <a href="https://github.com/YolandaXinyueZhu" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Qinghongbing Xie</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Weihang Huang</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiang Wu</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Long Zeng</a></p>
+            <p class="venue">International Conference on Intelligent Robots and Systems (IROS), 2024</p>
+            <p class="link-list">
+              <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2309.07726" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/jackyzengl/GRID" target="_blank">code</a>
+            </p>
+            <p class="pub-desc">Used scene graphs and LLMs to plan sub-tasks from instructions across diverse scenes.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 7: Knolling Bot -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay playsinline preload="metadata" loop style="border-radius:10px; max-height:250px;">
+              <source src="videos/knolling.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="#" class="title">Knolling Bot: Learning Robotic Object Arrangement from Tidy Demonstrations</a>
+            <p class="authors">
+              <a href="https://yuhang-hu.com/" target="_blank">Yuhang Hu</a>,
+              <a href="" target="_blank">Zhizhuo Zhang</a>,
+              <a href="" target="_blank"><strong>Xinyue Zhu</strong></a>,
+              <a href="" target="_blank">Ruibo Liu</a>,
+              <a href="https://www.philippewyder.com/" target="_blank">Philippe Wyder</a>,
+              <a href="https://www.hodlipson.com/" target="_blank">Hod Lipson</a>
+            </p>
+            <p class="venue">Under Review</p>
+            <p class="link-list">
+              <a href="https://github.com/H-Y-H-Y-H/knolling_bot" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2310.04566" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/H-Y-H-Y-H/knolling_bot" target="_blank">code</a>
+            </p>
+            <p class="pub-desc">Learned tidiness from demonstrations to arrange objects into orderly layouts.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Publication 8: Integer Addition Table -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <img src="videos/latin.png" alt="Latin Square" style="width:100%; border-radius:10px; max-height:250px; object-fit:cover;">
+          </div>
+          <div>
+            <a href="#" class="title">Uniquely Completable And Critical Subsets of the Integer Addition Table</a>
+            <p class="authors"><a href="" target="_blank">Aurora Callahan*</a>, <a href="" target="_blank">Emma R Hasson*</a>, <a href="" target="_blank">Kaethe Minden*</a>, <a href="" target="_blank">MA Ollis*</a>, <a href="" target="_blank"><strong>Xinyue Zhu*</strong></a></p>
+            <p class="venue">Australasian Journal of Combinatorics, 2023</p>
+            <p class="link-list">
+              <a href="https://ajc.maths.uq.edu.au/pdf/89/ajc_v89_p137.pdf" target="_blank">paper</a>
+            </p>
+            <p class="pub-desc">Defined and analyzed mathematical properties of the infinite Latin square.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</body>
+</html>
