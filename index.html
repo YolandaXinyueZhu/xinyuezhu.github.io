@@ -117,10 +117,20 @@
       font-size: 1.5rem;
       font-weight: 600;
       margin-top: 32px;
-      margin-bottom: 25px;
+      margin-bottom: 18px; /* Default margin-bottom */
       border-bottom: 1px solid #eaeaea;
       padding-bottom: 4px;
       text-align: left;
+    }
+
+    /* Specific margin-bottom for Updates section */
+    .section-title.updates-title {
+      margin-bottom: 15px;
+    }
+
+    /* Specific margin-bottom for Publications section */
+    .section-title.publications-title {
+      margin-bottom: 25px;
     }
 
     /* ========== CONTENT BLOCKS ========== */
@@ -140,7 +150,7 @@
     }
     
     ul.updates li {
-      margin-bottom: 8px;
+      margin-bottom: 2px;
       font-size: 0.95rem;
     }
 
@@ -349,15 +359,17 @@
 
     <div class="content">
       <!-- ========== UPDATES ========== -->
-      <h2 class="section-title">Updates</h2>
+      <h2 class="section-title updates-title">Updates</h2>
       <div class="section">
         <ul class="updates">
+          <li>[Sep '25]: Our paper <a href="https://binghao-huang.github.io/touch_in_the_wild/" target="_blank">Touch in the wild</a> is accepted to NeurIPS!</li>
+          <li>[Aug '25]: Our paper <a href="https://jxu.ai/geotact/" target="_blank">GEOTACT</a> is accepted to Autonomous Robot Journal!</li>
           <li>[May '25]: Graduated with my Bachelor's Degree in Computer Science at Columbia. 🎉</li>
         </ul>
       </div>
 
       <!-- ========== PUBLICATIONS ========== -->
-      <h2 class="section-title">Publications</h2>
+      <h2 class="section-title publications-title">Publications</h2>
 
       <!-- Publication 1: Touch in the Wild -->
       <div class="section">
