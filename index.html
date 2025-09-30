@@ -112,7 +112,7 @@
     }
     
     .header .image { 
-      flex: 0 0 22%; 
+      flex: 0 0 20%; 
     }
     
     .header .text {
@@ -132,7 +132,7 @@
     }
     
     .header .text .name {
-      font-size: 1.8rem;
+      font-size: 1.75rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
     }
@@ -408,7 +408,7 @@
   <!-- ========== NAVIGATION BAR ========== -->
   <nav>
     <div class="nav-container">
-      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a>
+      <a href="#" onclick="event.preventDefault(); window.history.pushState('', document.title, window.location.pathname); window.scrollTo({top: 0, behavior: 'smooth'});">Home</a>
       <span class="separator">/</span>
       <a href="#updates">Updates</a>
       <span class="separator">/</span>
