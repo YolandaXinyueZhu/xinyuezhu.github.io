@@ -25,6 +25,10 @@
       padding: 0; 
     }
     
+    html {
+      scroll-behavior: smooth;
+    }
+    
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       color: #000;
@@ -35,6 +39,7 @@
       justify-content: center;
       align-items: flex-start;
       padding: 40px 0;
+      padding-top: 80px;
     }
     
     a { 
@@ -44,6 +49,47 @@
     
     a:hover { 
       text-decoration: underline; 
+    }
+
+    /* ========== NAVIGATION BAR ========== */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      max-width: 1150px;
+      width: 100%;
+      background: #fff;
+      border-bottom: 1px solid #eaeaea;
+      z-index: 1000;
+      padding: 20px 20px;
+    }
+    
+    nav .nav-container {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      width: 100%;
+      gap: 8px;
+    }
+    
+    nav a {
+      font-size: 0.95rem;
+      color: #666;
+      text-decoration: none;
+      font-weight: 400;
+      transition: color 0.2s;
+    }
+    
+    nav a:hover {
+      color: #2e5cb8;
+      text-decoration: none;
+    }
+    
+    nav .separator {
+      color: #666;
+      font-size: 0.95rem;
+      margin: 0 4px;
     }
 
     /* ========== PAGE CONTAINER ========== */
@@ -62,10 +108,11 @@
       flex-wrap: nowrap;
       align-items: center;
       margin-bottom: 40px;
+      scroll-margin-top: 0;
     }
     
     .header .image { 
-      flex: 0 0 23%; 
+      flex: 0 0 22%; 
     }
     
     .header .text {
@@ -85,7 +132,7 @@
     }
     
     .header .text .name {
-      font-size: 2rem;
+      font-size: 1.8rem;
       font-weight: 600;
       margin-bottom: 0.25rem;
     }
@@ -121,6 +168,7 @@
       border-bottom: 1px solid #eaeaea;
       padding-bottom: 4px;
       text-align: left;
+      scroll-margin-top: 80px;
     }
 
     /* Specific margin-bottom for Updates section */
@@ -285,6 +333,15 @@
     @media (max-width: 768px) {
       body {
         padding: 10px 0;
+        padding-top: 80px;
+      }
+      
+      nav {
+        padding: 20px 15px;
+      }
+      
+      nav a {
+        font-size: 1rem;
       }
       
       .container {
@@ -319,6 +376,18 @@
     }
 
     @media (max-width: 480px) {
+      body {
+        padding-top: 70px;
+      }
+      
+      nav {
+        padding: 20px 10px;
+      }
+      
+      nav a {
+        font-size: 0.95rem;
+      }
+      
       .container {
         padding: 10px;
       }
@@ -336,9 +405,20 @@
 </head>
 
 <body>
+  <!-- ========== NAVIGATION BAR ========== -->
+  <nav>
+    <div class="nav-container">
+      <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); return false;">Home</a>
+      <span class="separator">/</span>
+      <a href="#updates">Updates</a>
+      <span class="separator">/</span>
+      <a href="#publications">Publications</a>
+    </div>
+  </nav>
+
   <div class="container">
     <!-- ========== HEADER ========== -->
-    <div class="header">
+    <div class="header" id="home">
       <div class="image">
         <img src="images/profile.jpg" alt="profile photo">
       </div>
@@ -359,7 +439,7 @@
 
     <div class="content">
       <!-- ========== UPDATES ========== -->
-      <h2 class="section-title updates-title">Updates</h2>
+      <h2 class="section-title updates-title" id="updates">Updates</h2>
       <div class="section">
         <ul class="updates">
           <li>[Sep '25]: Our paper <a href="https://binghao-huang.github.io/touch_in_the_wild/" target="_blank">Touch in the wild</a> is accepted to NeurIPS!</li>
@@ -369,7 +449,7 @@
       </div>
 
       <!-- ========== PUBLICATIONS ========== -->
-      <h2 class="section-title publications-title">Publications</h2>
+      <h2 class="section-title publications-title" id="publications">Publications</h2>
 
       <!-- Publication 1: Touch in the Wild -->
       <div class="section">
