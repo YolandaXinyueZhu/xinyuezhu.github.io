@@ -151,12 +151,17 @@
     .social {
       margin-top: 16px;
     }
-    
+
     .social a {
-      font-size: 1.13rem;
-      color: #000;
-      margin-right: 12px;
+      font-size: 0.95rem;
+      color: #2e5cb8;
       vertical-align: middle;
+    }
+
+    .social .separator {
+      color: #000;
+      font-size: 0.95rem;
+      margin: 0 4px;
     }
 
     /* ========== SECTION HEADERS ========== */
@@ -435,9 +440,11 @@
         </p>
 
         <div class="social">
-          <a href="https://github.com/YolandaXinyueZhu" aria-label="GitHub"><i class="fab fa-github"></i></a>
-          <a href="https://scholar.google.com/citations?user=6v92M7MAAAAJ&hl=en" aria-label="University"><i class="fas fa-graduation-cap"></i></a>
-          <a href="https://x.com/XinyueYolandaZ" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="https://github.com/YolandaXinyueZhu" aria-label="GitHub">GitHub</a>
+          <span class="separator">/</span>
+          <a href="https://scholar.google.com/citations?user=6v92M7MAAAAJ&hl=en" aria-label="Google Scholar">Google Scholar</a>
+          <span class="separator">/</span>
+          <a href="https://x.com/XinyueYolandaZ" aria-label="Twitter">X</a>
         </div>
       </div>
     </div>
@@ -531,6 +538,7 @@
               Workshop on Interpreting Cognition in Deep Learning Models, NeurIPS 2025
               <a href="https://coginterp.github.io/neurips2025/" target="_blank">[Link]</a>
             </p>
+            <p class="venue">Under Review, 2025</p>
             <p class="link-list">
               <a href="https://openreview.net/pdf?id=HyfwJjytjB" target="_blank">paper</a><span class="dot">
             </p>
@@ -559,26 +567,6 @@
         </div>
       </div>
 
-      <!-- Publication 6: GRID -->
-      <div class="section">
-        <div class="publication featured-publication">
-          <div style="flex:0 0 27%;">
-            <video width="100%" muted autoplay playsinline preload="metadata" loop style="border-radius:10px; max-height:250px;">
-              <source src="videos/grid.mp4" type="video/mp4">
-            </video>
-          </div>
-          <div>
-            <a href="#" class="title">GRID: Scene-Graph-based Instruction-driven Robotic Task Planning</a>
-            <p class="authors"><a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Zhe Ni*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiaoxin Deng*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Cong Tai*</a>, <a href="https://github.com/YolandaXinyueZhu" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Qinghongbing Xie</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Weihang Huang</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiang Wu</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Long Zeng</a></p>
-            <p class="venue">International Conference on Intelligent Robots and Systems (IROS), 2024</p>
-            <p class="link-list">
-              <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2309.07726" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/jackyzengl/GRID" target="_blank">code</a>
-            </p>
-            <p class="pub-desc">Used scene graphs and LLMs to plan sub-tasks from instructions across diverse scenes.</p>
-          </div>
-        </div>
-      </div>
-
       <!-- Publication 7: Knolling Bot -->
       <div class="section">
         <div class="publication featured-publication">
@@ -602,6 +590,27 @@
               <a href="https://github.com/H-Y-H-Y-H/knolling_bot" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2310.04566" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/H-Y-H-Y-H/knolling_bot" target="_blank">code</a>
             </p>
             <p class="pub-desc">Learned tidiness from demonstrations to arrange objects into orderly layouts.</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- Publication 6: GRID -->
+      <div class="section">
+        <div class="publication featured-publication">
+          <div style="flex:0 0 27%;">
+            <video width="100%" muted autoplay playsinline preload="metadata" loop style="border-radius:10px; max-height:250px;">
+              <source src="videos/grid.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div>
+            <a href="#" class="title">GRID: Scene-Graph-based Instruction-driven Robotic Task Planning</a>
+            <p class="authors"><a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Zhe Ni*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiaoxin Deng*</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Cong Tai*</a>, <a href="https://github.com/YolandaXinyueZhu" target="_blank"><strong>Xinyue Zhu</strong></a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Qinghongbing Xie</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Weihang Huang</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Xiang Wu</a>, <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">Long Zeng</a></p>
+            <p class="venue">International Conference on Intelligent Robots and Systems (IROS), 2024</p>
+            <p class="link-list">
+              <a href="https://jackyzengl.github.io/GRID.github.io/" target="_blank">website</a><span class="dot">•</span><a href="https://arxiv.org/abs/2309.07726" target="_blank">paper</a><span class="dot">•</span><a href="https://github.com/jackyzengl/GRID" target="_blank">code</a>
+            </p>
+            <p class="pub-desc">Used scene graphs and LLMs to plan sub-tasks from instructions across diverse scenes.</p>
           </div>
         </div>
       </div>
